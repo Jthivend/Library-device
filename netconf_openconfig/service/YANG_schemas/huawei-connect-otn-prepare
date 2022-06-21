@@ -1,0 +1,451 @@
+module huawei-connect-otn-prepare {
+  namespace "urn:huawei:yang:huawei-otn-connect-prepare";
+  prefix otn-connect-prepare;
+
+  organization
+    "Huawei Technologies Co., Ltd.";
+  contact
+    "Huawei Industrial Base
+     Bantian, Longgang
+     Shenzhen 518129
+     People's Republic of China
+     Website: http://www.huawei.com
+     Email: support@huawei.com
+     ";
+  description
+    "Huawei OTN-connect-prepare YANG";
+
+  revision 2017-11-22 {
+    description
+      "Initial version";
+    reference
+      "";
+  }
+
+  typedef payload-type {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "None.";
+      }
+      enum "ge_ttt_agmp" {
+        value 263;
+        description
+          "ge_gfp_t.";
+      }
+      enum "ge_gfp_t" {
+        value 261;
+        description
+          "ge_gfp_t.";
+      }
+      enum "stm1" {
+        value 769;
+        description
+          "stm1.";
+      }
+      enum "stm4" {
+        value 770;
+        description
+          "stm4.";
+      }
+      enum "otu1" {
+        value 513;
+        description
+          "otu1.";
+      }
+      enum "stm16" {
+        value 771;
+        description
+          "stm16.";
+      }
+      enum "stm64" {
+        value 772;
+        description
+          "stm16.";
+      }
+      enum "otu2" {
+        value 514;
+        description
+          "otu2.";
+      }
+      enum "10gelan" {
+        value 258;
+        description
+          "10gelan.";
+      }
+      enum "100gelan" {
+        value 265;
+        description
+          "100gelan.";
+      }
+      enum "otu4" {
+        value 521;
+        description
+          "otu4.";
+      }
+      enum "40ge" {
+        value 264;
+        description
+          "40ge.";
+      }
+      enum "fc800" {
+        value 1289;
+        description
+          "fc800.";
+      }
+      enum "fc1600" {
+        value 1290;
+        description
+          "fc1600.";
+      }
+      enum "fc3200" {
+        value 1291;
+        description
+          "fc3200.";
+      }
+      enum "ficon8g" {
+        value 1541;
+        description
+          "ficon8g.";
+      }
+      enum "ficon10g" {
+        value 1544;
+        description
+          "ficon10g.";
+      }
+      enum "ibqdr" {
+        value 3075;
+        description
+          "ibqdr.";
+      }
+      enum "10gefc" {
+        value 1286;
+        description
+          "10gefc.";
+      }
+    }
+    description
+      "payload type.";
+  }
+
+  typedef port-workmode {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "None.";
+      }
+      enum "t_any_odu0(_odu1)_otu2" {
+        value 4097;
+        description
+          "t_any_odu0(_odu1)_otu2.";
+      }
+      enum "t_any_odu1_cross" {
+        value 260;
+        description
+          "t_any_odu1_cross.";
+      }
+      enum "t_any_oduflex_otu2" {
+        value 6656;
+        description
+          "t_any_oduflex_otu2.";
+      }
+      enum "t_any_odu2" {
+        value 512;
+        description
+          "t_any_odu2.";
+      }
+      enum "t_any_odu3" {
+        value 513;
+        description
+          "t_any_odu3.";
+      }
+      enum "t_any_odu4" {
+        value 514;
+        description
+          "t_any_odu4.";
+      }
+      enum "t_any_oduflex_otu4" {
+        value 6660;
+        description
+          "t_any_oduflex_otu4.";
+      }
+      enum "t_any_odu2_otu4" {
+        value 4612;
+        description
+          "t_any_odu2_otu4.";
+      }
+    }
+    description
+      "payload type.";
+  }
+
+  typedef portroute-type {
+    type enumeration {
+      enum "t_maproute_10g_bit" {
+        value 1;
+        description
+          "t_maproute_10g_bit.";
+      }
+      enum "t_maproute_10g_mac" {
+        value 2;
+        description
+          "t_maproute_10g_mac.";
+      }
+      enum "t_maproute_gfp_f" {
+        value 20;
+        description
+          "t_maproute_gfp_f.";
+      }
+      enum "t_maproute_bmp" {
+        value 21;
+        description
+          "t_maproute_bmp.";
+      }
+      enum "t_maproute_imp" {
+        value 22;
+        description
+          "t_maproute_imp.";
+      }
+      enum "t_maproute_imp_mac" {
+        value 23;
+        description
+          "t_maproute_imp_mac.";
+      }
+    }
+  }
+
+  typedef oxucnspeed-type {
+    type enumeration {
+      enum "100G_QPSK" {
+        value 1;
+        description
+          "100G_QPSK.";
+      }
+      enum "200G_16QAM" {
+        value 2;
+        description
+          "200G_16QAM.";
+      }
+      enum "200G_QPSK" {
+        value 3;
+        description
+          "200G_QPSK.";
+      }
+      enum "200G_8QAM" {
+        value 6;
+        description
+          "200G_8QAM.";
+      }
+      enum "200G_e16QAM" {
+        value 9;
+        description
+          "200G_e16QAM.";
+      }
+      enum "200G_16QAM-H" {
+        value 11;
+        description
+          "200G_16QAM-H.";
+      }
+      enum "10G" {
+        value 32;
+        description
+          "10G.";
+      }
+      enum "2.5G" {
+        value 33;
+        description
+          "2.5G.";
+      }
+    }
+  }
+
+  rpc set-payloadType {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+
+      leaf payload {
+        type payload-type;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc set-port-workmode {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+
+      leaf workmode {
+        type port-workmode;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc set-portroute {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+
+      leaf portroute {
+        type portroute-type;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc get-portroute {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+    }
+
+    output {
+      leaf portroute {
+        type portroute-type;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc set-oxucnspeed {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+
+      leaf oxucnspeed {
+        type oxucnspeed-type;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc get-oxucnspeed {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+    }
+
+    output {
+      leaf oxucnspeed {
+        type oxucnspeed-type;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc set-send-wavelen {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+
+      leaf frequency {
+        type uint32;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc get-send-wavelen {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+    }
+
+    output {
+      leaf frequency {
+        type uint32;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc set-recv-wavelen {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+
+      leaf frequency {
+        type uint32;
+        description
+          "none";
+      }
+    }
+  }
+
+  rpc get-recv-wavelen {
+    description
+      "none";
+    input {
+      leaf name {
+        type string;
+        description
+          "none";
+      }
+    }
+
+    output {
+      leaf frequency {
+        type uint32;
+        description
+          "none";
+      }
+    }
+  }
+}

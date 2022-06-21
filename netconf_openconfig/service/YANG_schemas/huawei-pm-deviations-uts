@@ -1,0 +1,212 @@
+module huawei-pm-deviations-uts {
+  namespace "urn:huawei:yang:huawei-pm-deviations-uts";
+  prefix pm-deviation;
+
+  import huawei-pm {
+    prefix pm;
+  }
+
+  organization
+    "Huawei Technologies Co., Ltd.";
+  contact
+    "Huawei Industrial Base
+     Bantian, Longgang
+     Shenzhen 518129
+     People's Republic of China
+     Website: http://www.huawei.com
+     Email: support@huawei.com
+     ";
+  description
+    "UTS Performance management module.";
+
+  revision 2017-11-01 {
+    description
+      "Initial revision.";
+    reference
+      "Huawei private.";
+  }
+
+  deviation "/pm:pm/pm:global" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:indicators" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:instanceTypes" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:thresholdRuleDics" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:instanceInfos" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:isDefault" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:thresholdEnable" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:transferMode" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:taskType" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:taskPeriod" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:taskState" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:dataMaxCaches" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:startType" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:endType" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:recordFileEnable" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:taskInstances" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:taskMeasures" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:taskThresholdRules" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:taskCustomizeInstances" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:statisticsTasks/pm:statisticsTask/pm:uploadRequestName" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:currentDatas/pm:currentData/pm:chassis" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:currentDatas/pm:currentData/pm:board" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:currentDatas/pm:currentData/pm:subcard" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:currentDatas/pm:currentData/pm:port" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:historyDatas/pm:historyData/pm:chassis" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:historyDatas/pm:historyData/pm:board" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:historyDatas/pm:historyData/pm:subcard" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:historyDatas/pm:historyData/pm:port" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:uatEvents" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:csesEvents" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:fileLists" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:servers" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:pm/pm:uploadConfigs" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetCurrentData/pm:input/pm:chassis" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetCurrentData/pm:input/pm:board" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetCurrentData/pm:input/pm:subcard" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetCurrentData/pm:input/pm:port" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetHistoryData/pm:input/pm:chassis" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetHistoryData/pm:input/pm:board" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetHistoryData/pm:input/pm:subcard" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetHistoryData/pm:input/pm:port" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetUATEvent" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:resetCSESEvent" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:uploadFile" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:setSendSwitch" {
+    deviate not-supported;
+  }
+
+  deviation "/pm:customizeInstances" {
+    deviate not-supported;
+  }
+}

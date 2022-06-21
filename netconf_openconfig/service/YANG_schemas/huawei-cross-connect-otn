@@ -1,0 +1,215 @@
+module huawei-cross-connect-otn {
+  namespace "urn:huawei:yang:huawei-cross-connect-otn";
+  prefix cross-connect;
+
+  organization
+    "Huawei Technologies Co., Ltd.";
+  contact
+    "Huawei Industrial Base
+     Bantian, Longgang
+     Shenzhen 518129
+     People's Republic of China
+     Website: http://www.huawei.com
+     Email: support@huawei.com
+     ";
+  description
+    "Huawei OTN Cross-connect YANG";
+
+  revision 2017-11-22 {
+    description
+      "Initial version";
+    reference
+      "";
+  }
+
+  typedef cross-connect-level-type {
+    type enumeration {
+      enum "odu0" {
+        value 528;
+        description
+          "odu0.";
+      }
+      enum "odu1" {
+        value 529;
+        description
+          "odu1.";
+      }
+      enum "odu2" {
+        value 530;
+        description
+          "odu2.";
+      }
+      enum "odu3" {
+        value 531;
+        description
+          "odu3.";
+      }
+      enum "odu4" {
+        value 533;
+        description
+          "odu4.";
+      }
+      enum "oduflex" {
+        value 534;
+        description
+          "oduflex.";
+      }
+    }
+    description
+      "Cross connect level type.";
+  }
+
+  typedef activation-status-type {
+    type enumeration {
+      enum "adding" {
+        value 1;
+        description
+          "adding.";
+      }
+      enum "deleting" {
+        value 2;
+        description
+          "deleting.";
+      }
+      enum "active" {
+        value 3;
+        description
+          "active.";
+      }
+    }
+    description
+      "Activation status of cross connect.";
+  }
+
+  typedef service-type {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "None.";
+      }
+      enum "10gelan" {
+        value 258;
+        description
+          "10gelan.";
+      }
+      enum "100gelan" {
+        value 265;
+        description
+          "100gelan.";
+      }
+      enum "40ge" {
+        value 264;
+        description
+          "None.";
+      }
+      enum "fc800" {
+        value 1289;
+        description
+          "10gelan.";
+      }
+      enum "fc1600" {
+        value 1290;
+        description
+          "100gelan.";
+      }
+      enum "fc3200" {
+        value 1291;
+        description
+          "None.";
+      }
+      enum "ficon8g" {
+        value 1541;
+        description
+          "10gelan.";
+      }
+      enum "ficon10g" {
+        value 1544;
+        description
+          "100gelan.";
+      }
+      enum "ibqdr" {
+        value 3075;
+        description
+          "10gelan.";
+      }
+      enum "10gefc" {
+        value 1286;
+        description
+          "100gelan.";
+      }
+    }
+    description
+      "Service type.";
+  }
+
+  container cross-connects {
+    description
+      "Otn cross connect.";
+    container config {
+      description
+        "Otn cross connect config.";
+      list cross-connect {
+        key "sink-port sink-channel source-port source-channel";
+        description
+          "Cross connect.";
+        leaf sink-port {
+          type string {
+            length "0..32";
+          }
+          description
+            "The sink port, for example PORT-1-1-C1.";
+        }
+
+        leaf sink-channel {
+          type string {
+            length "0..32";
+          }
+          description
+            "The sink channel, for example 1.";
+        }
+
+        leaf source-port {
+          type string {
+            length "0..32";
+          }
+          description
+            "The source port, for example PORT-1-1-L1.";
+        }
+
+        leaf source-channel {
+          type string {
+            length "0..32";
+          }
+          description
+            "The source channel, for example OCh:1-ODU2:1-ODU0:1.";
+        }
+
+        leaf level {
+          type cross-connect-level-type;
+          description
+            "The cross-connect levele.";
+        }
+
+        leaf occupied-oduk-timeslots {
+          type int16;
+          description
+            "occupied oduk timeslots.";
+        }
+
+        leaf service-rate {
+          type int64;
+          units "bit/s";
+          description
+            "service-rate(bit/s).";
+        }
+
+        leaf service-type {
+          type service-type;
+          description
+            "The name of source";
+        }
+      }
+    }
+  }
+}

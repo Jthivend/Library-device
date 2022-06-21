@@ -1,0 +1,7 @@
+<config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <info>
+          <clli>{{clli}}</clli>
+        </info>
+      </org-openroadm-device>
+    </config>

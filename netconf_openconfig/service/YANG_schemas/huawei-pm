@@ -1,0 +1,1238 @@
+module huawei-pm {
+  namespace "http://www.huawei.com/netconf/vrp/huawei-pm";
+  prefix pm;
+
+  import huawei-pub-type {
+    prefix pub-type;
+  }
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+
+  import ietf-yang-types {
+    prefix yang;
+  }
+
+  import huawei-extension {
+    prefix ext;
+  }
+
+  include "huawei-pm-action";
+
+  include "huawei-pm-type";
+
+  organization
+    "Huawei Technologies Co.,Ltd.";
+  contact
+    "Huawei Industrial Base Bantian, Longgang Shenzhen 518129                    
+        People's Republic of China                    
+        Website: http://www.huawei.com Email: support@huawei.com";
+  description
+    "Performance management module.";
+
+  revision 2017-03-23 {
+    description
+      "Functions supported by the schema are added to the YANG file.";
+    reference
+      "Huawei private.";
+  }
+  revision 2013-01-01 {
+    description
+      "Init revision";
+    reference
+      "Huawei private.";
+  }
+
+  typedef date-and-time-test {
+    type string {
+      pattern "[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\+[0-9]{2}:[0-9]{2}";
+    }
+  }
+
+  container pm {
+    description
+      "Performance management module.";
+    container statisticsTasks {
+      description
+        "Performance statistics task.";
+      list statisticsTask {
+        key "taskName";
+        description
+          "Performance statistics task.";
+        leaf taskName {
+          type pm_taskName_type {
+            length "1..31";
+            pattern "[^A-Z]*";
+          }
+          description
+            "Name of a statistics task.";
+        }
+
+        leaf startDate {
+          type pub-type:date;
+          default "1970-01-01";
+          description
+            "Start date of a statistics task.";
+        }
+
+        leaf startTime {
+          type pub-type:time;
+          default "00:00:00";
+          description
+            "Start time of a statistics task.";
+        }
+
+        leaf endDate {
+          type pub-type:date;
+          default "1970-01-01";
+          description
+            "End date of a statistics task.";
+        }
+
+        leaf endTime {
+          type pub-type:time;
+          default "00:00:00";
+          description
+            "End time of a statistics task.";
+        }
+
+        leaf uploadRequestName {
+          ext:allowDelete "true";
+          type leafref {
+            path "/pm/uploadConfigs/uploadConfig/requestName";
+          }
+          description
+            "Upload request name.";
+        }
+
+        container taskCustomizeInstances {
+          description
+            "Customize instances of a statistics task.";
+          list taskCustomizeInstance {
+            key "instanceTypeName instanceName indicatorName";
+            description
+              "Customize instance of a statistics task.";
+            leaf instanceTypeName {
+              type pm_instanceTypeName_type {
+                length "1..63";
+              }
+              description
+                "Instance type name.";
+            }
+
+            leaf instanceName {
+              type pm_instanceName_type {
+                length "1..255";
+              }
+              description
+                "Statistical instance name.";
+            }
+
+            leaf indicatorName {
+              type pm_indicatorName_type {
+                length "1..63";
+              }
+              description
+                "Indicator name.";
+            }
+
+            leaf monitorState {
+              type pmIsEnableType;
+              default "Enable";
+              description
+                "Monitoring status of a global instance.";
+            }
+
+            leaf detectMode {
+              type pmDetectMode;
+              default "triggerorclear";
+              description
+                "Detection mode.";
+            }
+
+            leaf highTrValue {
+              type uint64;
+              default "0";
+              description
+                "Upper threshold value.";
+            }
+
+            leaf highClearValue {
+              type uint64;
+              default "0";
+              description
+                "Clear-alarm value of the upper threshold alarms.";
+            }
+
+            leaf chassis {
+              type int32;
+              default "0";
+              description
+                "Chassis number.";
+            }
+
+            leaf board {
+              type int32;
+              default "0";
+              description
+                "Board number.";
+            }
+
+            leaf subcard {
+              type int32;
+              default "0";
+              description
+                "Subcard number.";
+            }
+
+            leaf port {
+              type int32;
+              default "0";
+              description
+                "Port Number.";
+            }
+          }
+        }
+
+        container taskThresholdRules {
+          description
+            "Threshold rules of statistics task.";
+          list taskThresholdRule {
+            key "instanceTypeName indicatorName";
+            description
+              "Threshold rule of statistics task.";
+            leaf instanceTypeName {
+              type pm_instanceThreTypeName_type {
+                length "1..31";
+              }
+              description
+                "Instance type name.";
+            }
+
+            leaf indicatorName {
+              type pm_indicatorName_type {
+                length "1..63";
+              }
+              description
+                "Indicator name.";
+            }
+
+            leaf highTrValue {
+              type uint64;
+              default "0";
+              description
+                "High threshold value of threshold alarm.";
+            }
+
+            leaf highClearValue {
+              type uint64;
+              default "0";
+              description
+                "High clear value of a threshold alarm.";
+            }
+          }
+        }
+
+        container taskMeasures {
+          description
+            "Task indicator.";
+          list taskMeasure {
+            key "instanceTypeName indicatorName";
+            description
+              "Task indicator.";
+            leaf instanceTypeName {
+              type pm_instanceTypeName_type {
+                length "1..63";
+              }
+              description
+                "Instance type name.";
+            }
+
+            leaf indicatorName {
+              type pm_indicatorName_type {
+                length "1..63";
+              }
+              description
+                "Indicator name.";
+            }
+          }
+        }
+
+        container taskInstances {
+          description
+            "Statistical task instances.";
+          list taskInstance {
+            key "instanceTypeName instanceName";
+            description
+              "Statistical task instance.";
+            leaf instanceTypeName {
+              type pm_instanceTypeName_type {
+                length "1..63";
+              }
+              description
+                "Instance type name.";
+            }
+
+            leaf instanceName {
+              type pm_instanceName_type {
+                length "1..255";
+              }
+              description
+                "Statistical instance name.";
+            }
+
+            leaf measureDefaultState {
+              type pmIsEnableType;
+              default "Enable";
+              description
+                "Default indicator status.";
+            }
+          }
+        }
+
+        leaf recordFileEnable {
+          type pmIsEnableType;
+          default "Enable";
+          description
+            "Enable the record file function of a statistics task.";
+        }
+
+        leaf endType {
+          type pmScheduleEndType;
+          default "no";
+          description
+            "End type of a statistics task.";
+        }
+
+        leaf startType {
+          type pmScheduleStartType;
+          default "startNow";
+          description
+            "Start type of a statistics task.";
+        }
+
+        leaf dataMaxCaches {
+          type int32 {
+            range "1..50";
+          }
+          default "4";
+          description
+            "Maximum number of cached statistical records.";
+        }
+
+        leaf taskState {
+          type pmTaskRunStateType;
+          config false;
+          description
+            "Status of a statistics task.";
+        }
+
+        leaf taskPeriod {
+          type uint32 {
+            range "5..86400";
+          }
+          default "900";
+          description
+            "Statistics interval (in seconds) of a statistics task. The value must be a multiple of 30s";
+        }
+
+        leaf taskType {
+          type pmTasktType;
+          default "pmRmonHistory";
+          description
+            "Type of a statistics task.";
+        }
+
+        leaf transferMode {
+          type pmUploadType;
+          default "Passive";
+          description
+            "File transfer mode.";
+        }
+
+        leaf thresholdEnable {
+          type pmIsEnableType;
+          default "Disable";
+          description
+            "Enable the threshold alarm function of a statistics task.";
+        }
+
+        leaf isDefault {
+          type boolean;
+          config false;
+          description
+            "Flag of a default statistics task.";
+        }
+      }
+    }
+
+    container currentDatas {
+      config false;
+      description
+        "Current statistics on performance management.";
+      list currentData {
+        key "instanceName indicatorName taskName instanceTypeName";
+        config false;
+        description
+          "Current statistics on performance management.";
+        leaf instanceName {
+          type pm_instanceName_type {
+            length "1..255";
+          }
+          config false;
+          description
+            "Statistical instance name.";
+        }
+
+        leaf indicatorName {
+          type pm_indicatorName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Indicator name.";
+        }
+
+        leaf taskName {
+          type pm_taskName_type {
+            length "1..31";
+            pattern "[^A-Z]*";
+          }
+          config false;
+          description
+            "Name of a statistics task.";
+        }
+
+        leaf instanceTypeName {
+          type pm_instanceTypeName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+
+        leaf startTime {
+          type yang:date-and-time;
+          config false;
+          description
+            "Start time of statistics.";
+        }
+
+        leaf dataValue {
+          type string {
+            length "1..63";
+          }
+          config false;
+          description
+            "Value of statistics.";
+        }
+
+        leaf dataValidFlag {
+          type pmDataValidFlag;
+          config false;
+          description
+            "Valid flag of statistics.";
+        }
+
+        leaf port {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Port Number.";
+        }
+
+        leaf subcard {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Subcard number.";
+        }
+
+        leaf board {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Board number.";
+        }
+
+        leaf chassis {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Chassis number.";
+        }
+      }
+    }
+
+    container historyDatas {
+      config false;
+      description
+        "Historical statistics on performance management.";
+      list historyData {
+        key "instanceName startTime indicatorName taskName instanceTypeName";
+        config false;
+        description
+          "Historical statistics on performance management.";
+        leaf instanceName {
+          type pm_instanceName_type {
+            length "1..255";
+          }
+          config false;
+          description
+            "Statistical instance name.";
+        }
+
+        leaf startTime {
+          type date-and-time-test;
+          config false;
+          description
+            "Start time of historical data.";
+        }
+
+        leaf indicatorName {
+          type pm_indicatorName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Indicator name.";
+        }
+
+        leaf taskName {
+          type pm_taskName_type {
+            length "1..31";
+            pattern "[^A-Z]*";
+          }
+          config false;
+          description
+            "Name of a statistics task.";
+        }
+
+        leaf instanceTypeName {
+          type pm_instanceTypeName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+
+        leaf dataValue {
+          type string {
+            length "1..63";
+          }
+          config false;
+          description
+            "Statistics value";
+        }
+
+        leaf dataValidFlag {
+          type pmDataValidFlag;
+          config false;
+          description
+            "Valid flag of statistics.";
+        }
+
+        leaf port {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Port Number.";
+        }
+
+        leaf subcard {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Subcard number.";
+        }
+
+        leaf board {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Board number.";
+        }
+
+        leaf chassis {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Chassis number.";
+        }
+      }
+    }
+
+    container uploadConfigs {
+      description
+        "Upload file channel to this server.";
+      list uploadConfig {
+        key "requestName";
+        description
+          "Upload file channel to this server.";
+        leaf requestName {
+          type pm_uploadRequestName_type {
+            length "1..31";
+            pattern "[^A-Z]*";
+          }
+          description
+            "Upload request name.";
+        }
+
+        leaf configServerName {
+          type leafref {
+            path "/pm/servers/server/serverName";
+          }
+          mandatory true;
+          description
+            "Server name used by the channel along which a file is uploaded.";
+        }
+      }
+    }
+
+    container servers {
+      description
+        "Server to upload files.";
+      list server {
+        key "serverName";
+        description
+          "Server to upload files.";
+        leaf serverName {
+          type pm_fileServerName_type {
+            length "1..31";
+            pattern "[^A-Z]*";
+          }
+          description
+            "Name of a server.";
+        }
+
+        leaf transferPro {
+          type pm_transferProtocolType;
+          mandatory true;
+          description
+            "Protocol to upload files.";
+        }
+
+        leaf hostAddr {
+          ext:allowDelete "false";
+          type inet:ipv4-address-no-zone;
+          description
+            "IP address.";
+        }
+
+        leaf port {
+          ext:allowDelete "true";
+          type int32 {
+            range "1..65535";
+          }
+          description
+            "Port number.";
+        }
+
+        leaf userName {
+          type string {
+            length "1..255";
+          }
+          mandatory true;
+          description
+            "User name of a server.";
+        }
+
+        leaf passWord {
+          type pub-type:passwordExtend {
+            length "1..255";
+          }
+          mandatory true;
+          description
+            "Password of a server.";
+        }
+
+        leaf destPath {
+          ext:allowDelete "true";
+          type string {
+            length "1..63";
+          }
+          description
+            "Destination path to upload files.";
+        }
+
+        leaf retryTimes {
+          type uint32 {
+            range "1..3";
+          }
+          default "3";
+          description
+            "Number of attempts to re-upload files.";
+        }
+
+        leaf vpnType {
+          type pm_vpn_type;
+          mandatory true;
+          description
+            "VPN type used to upload a file.";
+        }
+
+        leaf vpnName {
+          ext:allowDelete "true";
+          type string {
+            length "1..32";
+          }
+          description
+            "VPN instance name.";
+        }
+      }
+    }
+
+    container fileLists {
+      config false;
+      description
+        "Query statistical file lists.";
+      list fileList {
+        config false;
+        description
+          "Query statistical file list information.";
+        leaf fileIndex {
+          type int32;
+          config false;
+          description
+            "File index.";
+        }
+
+        leaf fileName {
+          type string {
+            length "0..63";
+          }
+          config false;
+          description
+            "File name.";
+        }
+      }
+    }
+
+    container csesEvents {
+      config false;
+      description
+        "Information on CSES events.";
+      list csesEvent {
+        key "instanceTypeName instanceName indicatorName startTime";
+        config false;
+        description
+          "Information on CSES events.";
+        leaf instanceTypeName {
+          type pm_instanceThreTypeName_type {
+            length "1..31";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+
+        leaf instanceName {
+          type pm_instanceName_type {
+            length "1..255";
+          }
+          config false;
+          description
+            "Statistical instance name.";
+        }
+
+        leaf indicatorName {
+          type pm_indicatorName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Indicator name.";
+        }
+
+        leaf startTime {
+          type yang:date-and-time;
+          config false;
+          description
+            "Start time of CSES event.";
+        }
+
+        leaf continuanceTime {
+          type pub-type:timeTick;
+          config false;
+          description
+            "Duration of a CSES event.";
+        }
+
+        leaf chassis {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Chassis number.";
+        }
+
+        leaf board {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Board number.";
+        }
+
+        leaf subcard {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Subcard number.";
+        }
+
+        leaf port {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Port Number.";
+        }
+      }
+    }
+
+    container uatEvents {
+      config false;
+      description
+        "UAT event information.";
+      list uatEvent {
+        key "instanceTypeName instanceName indicatorName startTime";
+        config false;
+        description
+          "UAT event information.";
+        leaf instanceTypeName {
+          type pm_instanceThreTypeName_type {
+            length "1..31";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+
+        leaf instanceName {
+          type pm_instanceName_type {
+            length "1..255";
+          }
+          config false;
+          description
+            "Statistical instance name.";
+        }
+
+        leaf indicatorName {
+          type pm_indicatorName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Indicator name.";
+        }
+
+        leaf startTime {
+          type yang:date-and-time;
+          config false;
+          description
+            "Start time of UAT event.";
+        }
+
+        leaf endTime {
+          type yang:date-and-time;
+          config false;
+          description
+            "End time of a UAT event.";
+        }
+
+        leaf chassis {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Chassis number.";
+        }
+
+        leaf board {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Board number.";
+        }
+
+        leaf subcard {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Subcard number.";
+        }
+
+        leaf port {
+          type int32 {
+            range "-1..255";
+          }
+          config false;
+          description
+            "Port Number.";
+        }
+      }
+    }
+
+    container instanceInfos {
+      config false;
+      description
+        "Instance Info of performance management.";
+      list instanceInfo {
+        key "instanceTypeName instanceName indicatorName period taskName";
+        config false;
+        description
+          "Instance Info of performance management.";
+        leaf instanceTypeName {
+          type pm_instanceTypeName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+
+        leaf instanceName {
+          type pm_instanceName_type {
+            length "1..255";
+          }
+          config false;
+          description
+            "Statistical instance name.";
+        }
+
+        leaf indicatorName {
+          type pm_indicatorName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Indicator name.";
+        }
+
+        leaf period {
+          type uint32 {
+            range "30..86400";
+          }
+          config false;
+          description
+            "Statistics interval of a global instance, in seconds. The value must be a multiples of 30s.";
+        }
+
+        leaf taskName {
+          type pm_taskName_type {
+            length "1..31";
+            pattern "[^A-Z]*";
+          }
+          config false;
+          description
+            "Task name.";
+        }
+
+        leaf monitorState {
+          type pmIsEnableType;
+          default "Enable";
+          config false;
+          description
+            "Monitoring status of a global instance.";
+        }
+
+        leaf detectMode {
+          type pmDetectMode;
+          default "triggerorclear";
+          config false;
+          description
+            "Detection mode of an instance.";
+        }
+
+        leaf highTrValue {
+          type uint64;
+          default "0";
+          config false;
+          description
+            "Upper threshold value.";
+        }
+
+        leaf highClearValue {
+          type uint64;
+          default "0";
+          config false;
+          description
+            "High clear value of a threshold value.";
+        }
+
+        leaf instanceInfoType {
+          type pm_InstanceInfoType;
+          config false;
+          description
+            "Information type of instance.";
+        }
+
+        leaf chassis {
+          type int32;
+          default "0";
+          config false;
+          description
+            "Chassis number.";
+        }
+
+        leaf board {
+          type int32;
+          default "0";
+          config false;
+          description
+            "Board number.";
+        }
+
+        leaf subcard {
+          type int32;
+          default "0";
+          config false;
+          description
+            "Subcard number.";
+        }
+
+        leaf port {
+          type int32;
+          default "0";
+          config false;
+          description
+            "Port Number.";
+        }
+      }
+    }
+
+    container thresholdRuleDics {
+      config false;
+      description
+        "Threshold rule dictionaries.";
+      list thresholdRuleDic {
+        key "instanceTypeName indicatorName period bandWidth ifType";
+        config false;
+        description
+          "Threshold rule.";
+        leaf instanceTypeName {
+          type pm_instanceTypeName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+
+        leaf indicatorName {
+          type pm_indicatorName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Indicator name.";
+        }
+
+        leaf period {
+          type uint32;
+          config false;
+          description
+            "Statistics cycle of a statistics task.";
+        }
+
+        leaf bandWidth {
+          type uint32;
+          config false;
+          description
+            "Interface bandwidth.";
+        }
+
+        leaf ifType {
+          type ifType;
+          config false;
+          description
+            "Interface type.";
+        }
+
+        leaf thresholdMaxValue {
+          type uint64;
+          config false;
+          description
+            "Maximum value of a threshold-crossing alarm.";
+        }
+
+        leaf thresholdMinValue {
+          type uint64;
+          config false;
+          description
+            "Minimum value of a threshold-crossing alarm.";
+        }
+
+        leaf highTrValue {
+          type uint64;
+          config false;
+          description
+            "Value of high threshold alarm.";
+        }
+
+        leaf highClearValue {
+          type uint64;
+          config false;
+          description
+            "Value of high clear threshold alarm.";
+        }
+
+        leaf alarmName {
+          type pm_alarmName_type {
+            length "1..31";
+          }
+          config false;
+          description
+            "Alarm name.";
+        }
+      }
+    }
+
+    container instanceTypes {
+      config false;
+      description
+        "Instance type name.";
+      list instanceType {
+        key "instanceTypeName";
+        config false;
+        description
+          "Instance type.";
+        leaf instanceTypeName {
+          type pm_instanceTypeName_type {
+            length "1..63";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+      }
+    }
+
+    container indicators {
+      config false;
+      description
+        "Information on indicators.";
+      list indicator {
+        key "instanceTypeName indicatorName";
+        config false;
+        description
+          "Information on indicator.";
+        leaf instanceTypeName {
+          type string {
+            length "1..63";
+          }
+          config false;
+          description
+            "Instance type name.";
+        }
+
+        leaf indicatorName {
+          type string {
+            length "1..63";
+          }
+          config false;
+          description
+            "Indicator name.";
+        }
+
+        leaf indicatorType {
+          type pmIndicatorType;
+          config false;
+          description
+            "Indicator type.";
+        }
+
+        leaf indicatorCounterType {
+          type pmIndicatorCounterType;
+          config false;
+          description
+            "Type of a counter.";
+        }
+
+        leaf indicatorMaxValue {
+          type uint64;
+          config false;
+          description
+            "Maximum indicator value.";
+        }
+
+        leaf indicatorMinValue {
+          type int64;
+          config false;
+          description
+            "Minimum indicator value.";
+        }
+      }
+    }
+
+    container global {
+      description
+        "Global PM configuration.";
+      leaf statisticsEnable {
+        type boolean;
+        default "false";
+        description
+          "Whether the statistics function is enabled.";
+      }
+
+      leaf reportEventSwitch {
+        type boolean;
+        default "false";
+        description
+          "Whether event information can be sent.";
+      }
+
+      leaf statisticsMaxTasks {
+        type int32;
+        config false;
+        description
+          "Maximum number of statistics tasks.";
+      }
+
+      leaf statisticsMaxFilesPerTask {
+        type int32;
+        default "4";
+        config false;
+        description
+          "Maximum number of statistics files for each task.";
+      }
+
+      leaf statisticsCurrentTasks {
+        type int32;
+        config false;
+        description
+          "Number of current statistics tasks.";
+      }
+    }
+  }
+}

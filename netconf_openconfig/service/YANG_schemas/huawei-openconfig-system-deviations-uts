@@ -1,0 +1,156 @@
+module huawei-openconfig-system-deviations-uts {
+  namespace "urn:huawei:yang:huawei-openconfig-system-deviations-uts";
+  prefix hw-oc-dev-uts;
+
+  import openconfig-yang-types {
+    prefix oc-yang;
+  }
+
+  import openconfig-inet-types {
+    prefix oc-inet;
+  }
+
+  import openconfig-system {
+    prefix oc-sys;
+  }
+
+  organization
+    "Huawei Technologies Co., Ltd";
+  contact
+    "Huawei Industrial Base
+     Bantian, Longgang
+     Shenzhen 518129
+     People's Republic of China
+     Website: http://www.huawei.com
+     Email: support@huawei.com
+     ";
+  description
+    "UTS NTP module.";
+
+  revision 2017-12-13 {
+    description
+      "Initial version";
+    reference
+      "Huawei private";
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:servers/oc-sys:server/oc-sys:config/oc-sys:address" {
+    deviate replace {
+      type string {
+        pattern "(([0-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))(\\.([0-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))){3})|(0x0{0,2}((0([1-9]|[a-f]))|(([1-9]|[a-e])([0-9]|[a-f]))|(f([0-9]|[a-e])))(((([0-9])|a)([0-9]|[a-f]){3})|(b([0-9]|[a-e])([0-9]|[a-f]){2})|(bf([0-9]|[a-e])([0-9]|[a-f]))))";
+      }
+    }
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:servers/oc-sys:server/oc-sys:state/oc-sys:address" {
+    deviate replace {
+      type string {
+        pattern "(([0-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))(\\.([0-9]|([1-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))){3})|(0x0{0,2}((0([1-9]|[a-f]))|(([1-9]|[a-e])([0-9]|[a-f]))|(f([0-9]|[a-e])))(((([0-9])|a)([0-9]|[a-f]){3})|(b([0-9]|[a-e])([0-9]|[a-f]){2})|(bf([0-9]|[a-e])([0-9]|[a-f]))))";
+      }
+    }
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:state/oc-sys:ntp-source-address" {
+    deviate replace {
+      type string {
+        pattern "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])";
+      }
+    }
+  }
+
+  deviation "/oc-sys:system/oc-sys:state/oc-sys:current-datetime" {
+    deviate replace {
+      type string {
+        pattern "[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}";
+      }
+    }
+  }
+
+  deviation "/oc-sys:system/oc-sys:state/oc-sys:mgt-ip-address" {
+    deviate replace {
+      type string {
+        pattern "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])";
+      }
+    }
+  }
+
+  deviation "/oc-sys:system/oc-sys:snmp/oc-sys:trap-targets/oc-sys:trap-target/oc-sys:state/oc-sys:address" {
+    deviate replace {
+      type string {
+        pattern "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])";
+      }
+    }
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:ntp-keys" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:config/oc-sys:ntp-source-address" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:config/oc-sys:enable-ntp-auth" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:state/oc-sys:enable-ntp-auth" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:state/oc-sys:auth-mismatch" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:servers/oc-sys:server/oc-sys:config/oc-sys:iburst" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:ntp/oc-sys:servers/oc-sys:server/oc-sys:state/oc-sys:iburst" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:config" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:dns" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:ssh-server" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:telnet-server" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:logging" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:processes" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:state/oc-sys:hostname" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:state/oc-sys:domain-name" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:state/oc-sys:login-banner" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:state/oc-sys:motd-banner" {
+    deviate not-supported;
+  }
+
+  deviation "/oc-sys:system/oc-sys:state/oc-sys:boot-time" {
+    deviate not-supported;
+  }
+}

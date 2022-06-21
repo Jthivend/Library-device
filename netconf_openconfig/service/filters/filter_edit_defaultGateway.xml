@@ -1,0 +1,7 @@
+   <config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <info>
+          <defaultGateway>{{defaultGateway}}</defaultGateway>
+        </info>
+      </org-openroadm-device>
+    </config>

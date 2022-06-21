@@ -1,0 +1,7 @@
+<filter type="subtree">
+    <org-openroadm-device:org-openroadm-device xmlns:org-openroadm-device="http://org/openroadm/device">
+      <org-openroadm-device:info>
+        <org-openroadm-device:node-type/>
+      </org-openroadm-device:info>
+    </org-openroadm-device:org-openroadm-device>
+  </filter>

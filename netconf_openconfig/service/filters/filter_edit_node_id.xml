@@ -1,0 +1,7 @@
+  <config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <info>
+          <node-id>{{node_id}}</node-id>
+        </info>
+      </org-openroadm-device>
+    </config>

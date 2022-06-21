@@ -1,0 +1,7 @@
+ <config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <info>
+          <prefix-length>{{prefixLength}}</prefix-length>
+        </info>
+      </org-openroadm-device>
+    </config>

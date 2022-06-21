@@ -1,0 +1,7 @@
+<config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <info>
+          <ipAddress>{{ipAddress}}</ipAddress>
+        </info>
+      </org-openroadm-device>
+    </config>

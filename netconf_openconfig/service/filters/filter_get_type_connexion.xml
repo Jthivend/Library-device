@@ -1,0 +1,9 @@
+<get>
+  <filter type="subtree">
+    <org-openroadm-device:org-openroadm-device xmlns:org-openroadm-device="http://org/openroadm/device">
+      <org-openroadm-device:roadm-connections>
+        <org-openroadm-device:connection-name/>
+      </org-openroadm-device:roadm-connections>
+    </org-openroadm-device:org-openroadm-device>
+  </filter>
+</get>

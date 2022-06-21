@@ -1,0 +1,10 @@
+ <config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <info>
+          <geoLocation>
+            <latitude>{{latitude}}</latitude>
+            <longitude>{{longitude}}</longitude>
+          </geoLocation>
+        </info>
+      </org-openroadm-device>
+    </config>

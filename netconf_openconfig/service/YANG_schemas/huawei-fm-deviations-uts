@@ -1,0 +1,160 @@
+module huawei-fm-deviations-uts {
+  namespace "urn:huawei:yang:huawei-fm-deviations-uts";
+  prefix fm-deviation;
+
+  import huawei-fm {
+    prefix fm;
+  }
+
+  organization
+    "Huawei Technologies Co., Ltd.";
+  contact
+    "Huawei Industrial Base
+     Bantian, Longgang
+     Shenzhen 518129
+     People's Republic of China
+     Website: http://www.huawei.com
+     Email: support@huawei.com
+     ";
+  description
+    "UTS Fault management module.";
+
+  revision 2017-11-01 {
+    description
+      "Initial revision.";
+    reference
+      "Huawei private.";
+  }
+
+  deviation "/fm:fm/fm:globalParam" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:activeAlarms/fm:activeAlarm/fm:rootKindFlag" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:activeAlarms/fm:activeAlarm/fm:rootAlarmSequence" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:activeAlarms/fm:activeAlarm/fm:reason" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:activeAlarms/fm:activeAlarm/fm:vrName" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmStas" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:historyAlarms/fm:historyAlarm/fm:reason" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:historyAlarms/fm:historyAlarm/fm:vrName" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:rules" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:hosts" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:moduleName" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:clearPersistTime" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:causePersistTime" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:chassis" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:board" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:level" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:monState" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:reportState" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:alarmObjInstances/fm:alarmObjInstance/fm:chassis" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:alarmObjInstances/fm:alarmObjInstance/fm:board" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:lastChangedTime" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:alarmObjInstances/fm:alarmObjInstance/fm:subcard" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:alarmObjInstances/fm:alarmObjInstance/fm:port" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:alarmObjInstances/fm:alarmObjInstance/fm:reportState" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmCfgs/fm:alarmCfg/fm:alarmObjInstances/fm:alarmObjInstance/fm:severity" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:trapCfgs" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:inversePorts" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmDefaults/fm:alarmDefault/fm:moduleName" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmDefaults/fm:alarmDefault/fm:clearPersistTime" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmDefaults/fm:alarmDefault/fm:causePersistTime" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:alarmDefaults/fm:alarmDefault/fm:level" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:hwAlarmMasks" {
+    deviate not-supported;
+  }
+
+  deviation "/fm:fm/fm:auxiliaryAlarms" {
+    deviate not-supported;
+  }
+}
