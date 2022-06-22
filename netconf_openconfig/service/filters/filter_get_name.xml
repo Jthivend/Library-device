@@ -1,0 +1,9 @@
+ <filter type="subtree">
+    <org-openroadm-device:org-openroadm-device xmlns:org-openroadm-device="http://org/openroadm/device">
+      <org-openroadm-device:users>
+        <org-openroadm-device:user>
+          <org-openroadm-device:name/>
+        </org-openroadm-device:user>
+      </org-openroadm-device:users>
+    </org-openroadm-device:org-openroadm-device>
+  </filter>

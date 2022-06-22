@@ -1,0 +1,7 @@
+  <config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <roadm-connections>
+          <connection-name>{{connexion_name}}</connection-name>
+        </roadm-connections>
+      </org-openroadm-device>
+    </config>

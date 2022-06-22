@@ -1,0 +1,18 @@
+ <config>
+            <org-openroadm-device xmlns="http://org/openroadm/device">
+                <interface>
+                    <name>{{name}}</name>
+                    <supporting-circuit-pack-name>{{supporting_circuit_pack_name}}</supporting-circuit-pack-name>
+                    <och xmlns="http://org/openroadm/optical-channel-interfaces">
+                        <modulation-format>dp-qpsk</modulation-format>
+                        <transmit-power>-5.0</transmit-power>
+                        <frequency>196.1</frequency>
+                    </och>
+                    <administrative-state>inService</administrative-state>
+                    <type xmlns:x="http://org/openroadm/interfaces">x:opticalChannel</type>
+                    <circuit-id>   TBD    </circuit-id>
+                    <supporting-port>1</supporting-port>
+                    <description>  TBD   </description>
+                </interface>
+            </org-openroadm-device>
+        </config>

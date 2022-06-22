@@ -24,6 +24,11 @@ filtre_max_degrees = read_filter('filter_get_max_degrees.xml')
 filtre_max_srgs = read_filter('filter_get_max_srgs.xml')
 filtre_max_num_bin_15min_historical_pm = read_filter('filter_get_max_num_bin_15min_historical_pm.xml')
 filtre_max_num_bin_24hour_historical_pm = read_filter('filter_get_max_num_bin_24hour_historical_pm.xml')
+filtre_interface = read_filter('filter_get_interface.xml')
+filtre_name = read_filter('filter_get_name.xml')
+filtre_password = read_filter('filter_get_password.xml')
+filtre_group = read_filter('filter_get_group.xml')
+filtre_connexion_name = read_filter('filter_get_connexion_name.xml')
 
 
 

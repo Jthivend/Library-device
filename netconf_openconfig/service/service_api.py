@@ -28,7 +28,7 @@ class ServiceOC:
         :return:
         """
         return self._client.get_config(target_config)
-+
+
 
     def modify_node_id(self, node_id):
         template = instanciate_template_jinja(self.filter_directory, "filter_edit_node_id.xml")
@@ -79,3 +79,14 @@ class ServiceOC:
         template = instanciate_template_jinja(self.filter_directory, "filter_edit_geoLocation.xml")
         output = template.render(longitude=longitude)
         return output
+
+    def modify_interface(self, name, supporting_circuit_pack_name):
+        template = instanciate_template_jinja(self.filter_directory, "filter_edit_interface.xml")
+        output = template.render(name=name, supporting_circuit_pack_name=supporting_circuit_pack_name)
+        return output
+
+    def modify_connexion_name(self, connexion_name):
+        template = instanciate_template_jinja(self.filter_directory, "filter_edit_connexion_name.xml")
+        output = template.render(connexion_name=connexion_name)
+        return output
+

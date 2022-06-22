@@ -5,9 +5,9 @@ from netconf_openconfig.service.service_api import *
 from netconf_openconfig.service.filters.filtres import *
 
 
-with connect_ssh('127.0.0.1', 17841, 'admin', 'admin', ) as sessions:
+with connect_ssh('127.0.0.1', 17841, 'changeit', 'changeit', ) as sessions:
     e = Manager(sessions, timeout=120)
-    config = NetconfClient('127.0.0.1', 17840, 'admin', 'admin')
+    config = NetconfClient('127.0.0.1', 17841, 'changeit', 'changeit')
     oc = ServiceOC(config)
     # Récupérer le node_id
     print(e.get_config("running", filtre_id).data_xml)
@@ -51,7 +51,16 @@ with connect_ssh('127.0.0.1', 17841, 'admin', 'admin', ) as sessions:
     print(e.get_config("running", filtre_geoLocation).data_xml)
     # Récupérer le degré max que la machine peut endurer
     # print(e.get_config("running", filtre_max_degrees).data_xml)
-
     # print(e.get_config("running", filtre_max_srgs).data_xml)
     # print(e.get_config("running", filtre_max_num_bin_15min_historical_pm).data_xml)
     # print(e.get_config("running", filtre_max_num_bin_24hour_historical_pm).data_xml)
+    # Récupérer les infos concernant l'interface
+    print(e.get_config("running", filtre_interface).data_xml)
+    # Récupérer le name, password et group du node  dans la branche user
+    print(e.get_config("running", filtre_name).data_xml)
+    print(e.get_config("running", filtre_password).data_xml)
+    print(e.get_config("running", filtre_group).data_xml)
+    # Récupérer le nom de la connexion
+    print(e.get_config("running", filtre_connexion_name).data_xml)
+
+
