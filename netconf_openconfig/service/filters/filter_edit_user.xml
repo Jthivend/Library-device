@@ -1,0 +1,11 @@
+  <config>
+      <org-openroadm-device xmlns="http://org/openroadm/device">
+        <users>
+          <user>
+            <name>{{username}}</name>
+            <password>{{password}}</password>
+            <group>{{group}}</group>
+          </user>
+        </users>
+      </org-openroadm-device>
+    </config>

@@ -29,7 +29,6 @@ class ServiceOC:
         """
         return self._client.get_config(target_config)
 
-
     def modify_node_id(self, node_id):
         template = instanciate_template_jinja(self.filter_directory, "filter_edit_node_id.xml")
         output = template.render(node_id=node_id)
@@ -90,3 +89,7 @@ class ServiceOC:
         output = template.render(connexion_name=connexion_name)
         return output
 
+    def modify_user(self, username, password, group):
+        template = instanciate_template_jinja(self.filter_directory, "filter_edit_connexion_name.xml")
+        output = template.render(usernmae=username, password=password, group=group)
+        return output
