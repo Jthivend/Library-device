@@ -1,10 +1,10 @@
 class ConfigParams:
-    def __init__(self, host: str, port: int, login: str, password: str, vendor: str = 'alu'):
+    def __init__(self, host: str, port: int, login: str, password: str):
         self._host = host
         self._port = port
         self._login = login
         self._password = password
-        self._vendor = vendor
+
 
     @property
     def host(self):
@@ -38,10 +38,3 @@ class ConfigParams:
     def password(self, value):
         self._password = value
 
-    @property
-    def vendor(self):
-        return self._vendor
-
-    @vendor.setter
-    def vendor(self, value):
-        self._vendor = value
